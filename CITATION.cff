@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+abstract: "Code of the StressPose pipeline for the detection of acute psychosocial stress from body posture and movements."
+authors: 
+  -
+    affiliation: "Machine Learning and Data Analytics Lab (MaD Lab), Department Artificial Intelligence in Biomedical Engineering, Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
+    family-names: Richer
+    given-names: Robert
+    orcid: "https://orcid.org/0000-0003-0272-5403"
+  -
+    affiliation: "Fraunhofer Institute for Integrated Circuits IIS"
+    family-names: Koch
+    given-names: Veronika
+    orcid: "https://orcid.org/0000-0002-2246-7686"
+  -
+    affiliation: "Machine Learning and Data Analytics Lab (MaD Lab), Department Artificial Intelligence in Biomedical Engineering, Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
+    family-names: "Müller"
+    given-names: Victoria
+    orcid: "https://orcid.org/0000-0003-2617-7886"
+  -
+    affiliation: "Machine Learning and Data Analytics Lab (MaD Lab), Department Artificial Intelligence in Biomedical Engineering, Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
+    family-names: "Küderle"
+    given-names: Arne
+    orcid: "https://orcid.org/0000-0002-5686-281X"
+  -
+    affiliation: "Machine Learning and Data Analytics Lab (MaD Lab), Department Artificial Intelligence in Biomedical Engineering, Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
+    family-names: Abel
+    given-names: Luca
+    orcid: "https://orcid.org/0000-0002-5044-7113"
+  -
+    affiliation: "Chair of Health Psychology, Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
+    family-names: Rohleder
+    given-names: Nicolas
+    orcid: "https://orcid.org/0000-0002-0417-0336"
+  -
+    affiliation: "Machine Learning and Data Analytics Lab (MaD Lab), Department Artificial Intelligence in Biomedical Engineering, Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
+    family-names: Eskofier
+    given-names: "Bjoern M."
+    orcid: "https://orcid.org/0000-0003-2602-517X"
+license: MIT
+message: "If you use this software, please cite it as below."
+repository-code: "https://github.com/empkins/stresspose-analysis"
+title: stresspose-analysis
+url: "https://github.com/empkins/stresspose-analysis"
