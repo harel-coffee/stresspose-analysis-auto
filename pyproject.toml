@@ -2,14 +2,29 @@
 name = "stresspose-analysis"
 version = "0.1.0"
 description = ""
-authors = ["Robert Richer <robert.richer@fau.de>"]
+authors = [
+    "Robert Richer <robert.richer@fau.de>",
+    "Veronika Koch <veronika.koch@iis.fraunhofer.de>",
+    "Victoria Mueller <victoria.m.mueller@fau.de>",
+    "Arne Küderle <arne.kuederle@fau.de>",
+    "Luca Abel <luca.abel@fau.de>"
+]
+homepage = "https://github.com/mad-lab-fau/stresspose-analysis"
+repository = "https://github.com/mad-lab-fau/stresspose-analysis"
 license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = ">=3.8,<3.11"
+empkins-macro = {git="https://github.com/empkins/empkins-macro.git", branch="main"}
+biopsykit = "^0.8.1"
+neurokit2 = "<0.2.1"
+nilspodlib = ">=3.4.1,<4.0"
 
 [tool.poetry.dev-dependencies]
+black = { version="^22", extras=["jupyter", "d"] }
+ruff = "^0.0.261"
+poethepoet = "^0.11.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -17,6 +32,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.black]
 line-length = 120
+target-version = ['py38']
 exclude = '''
 (
   /(
@@ -35,20 +51,15 @@ exclude = '''
 )
 '''
 
-[tool.isort]
-profile = "black"
-multi_line_output = 3
-line_length = 120
-skip_gitignore = true
-
 
 [tool.poe.tasks]
 _format_black = "black ."
-_format_isort = "isort ."
-format = { sequence = ["_format_black", "_format_isort"], help = "Format all files." }
-lint = { cmd = "prospector", help = "Lint all files with Prospector." }
+_format_ruff = "ruff . --fix-only"
+format = { sequence = ["_format_black", "_format_ruff"], help = "Format all files." }
+lint = { cmd = "ruff stresspose_analysis --fix", help = "Lint all files with ruff." }
+_lint_ci = "ruff stresspose_analysis --format=github"
 _check_black = "black . --check"
-_check_isort = "isort . --check"
-check = { sequence = ["_check_black", "_check_isort", "lint"], help = "Check all potential format and linting issues." }
-test = { cmd = "pytest --cov=stresspose-analysis --cov-report=term-missing --cov-report=xml", help = "Run Pytest with coverage." }
-version = { script = "_tasks:task_update_version()" }
+ci_check = { sequence = ["_check_black", "_lint_ci"], help = "Check all potential format and linting issues." }
+update_version = { script = "_tasks:task_update_version()" }
+register_ipykernel = { cmd = "python -m ipykernel install --user --name stresspose_analysis --display-name stresspose_analysis", help = "Add a new jupyter kernel for the project." }
+remove_ipykernel = { cmd = "jupyter kernelspec uninstall stresspose_analysis", help = "Remove the project specific jupyter kernel."}
