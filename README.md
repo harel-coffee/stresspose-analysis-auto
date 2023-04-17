@@ -1,7 +1,7 @@
 # stresspose-analysis
 
 ![GitHub](https://img.shields.io/github/license/empkins/stresspose-analysis)
-[![Lint](https://github.com/empkins/stresspose-analysis/actions/workflows/lint.yml/badge.svg)](https://github.com/empkins/stresspose-analysis/actions/workflows/lint.yml)
+[![Lint](https://github.com/empkins/stresspose-analysis/actions/workflows/test-and-lint.yml/badge.svg)](https://github.com/empkins/stresspose-analysis/actions/workflows/test-and-lint.yml)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/empkins/stresspose-analysis)
 
