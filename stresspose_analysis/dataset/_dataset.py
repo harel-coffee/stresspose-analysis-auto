@@ -282,7 +282,7 @@ class StressPoseDataset(Dataset):
         return load_mocap_data(self.base_path, subject_id, condition)
 
     def _load_questionnaire_data(self) -> pd.DataFrame:
-        data_path = self.base_path.joinpath("questionnaire_total/processed/empkins_macro_questionnaire_data.csv")
+        data_path = self.base_path.joinpath("questionnaire_total/processed/stresspose_questionnaire_processed.csv")
         data = load_questionnaire_data(data_path)
         subject_ids = self.index["subject"].unique()
         return data.loc[subject_ids]
@@ -290,7 +290,7 @@ class StressPoseDataset(Dataset):
     def _load_saliva_data(self, saliva_type: str) -> pd.DataFrame:
         if self.is_single("phase"):
             raise ValueError(f"{saliva_type} data can not be accessed for individual phases!")
-        data_path = self.base_path.joinpath(f"saliva_total/processed/empkins_macro_{saliva_type}.csv")
+        data_path = self.base_path.joinpath(f"saliva_total/processed/stresspose_{saliva_type}.csv")
         data = load_long_format_csv(data_path)
 
         subject_ids = self.index["subject"].unique()
@@ -300,7 +300,7 @@ class StressPoseDataset(Dataset):
     def _load_saliva_features(self, saliva_type: str) -> pd.DataFrame:
         if self.is_single("phase"):
             raise ValueError(f"{saliva_type} features can not be accessed for individual phases!")
-        data_path = self.base_path.joinpath(f"saliva_total/processed/empkins_macro_{saliva_type}_features.csv")
+        data_path = self.base_path.joinpath(f"saliva_total/processed/stresspose_{saliva_type}_features.csv")
         data = load_long_format_csv(data_path)
 
         subject_ids = self.index["subject"].unique()
