@@ -18,15 +18,15 @@ Additionally, it contains analysis experiments performed with the dataset to rep
 **The repository is structured as follows:**
 
 ```bash
-├── stresspose_analysis/                                    # `stresspose-analysis` Python package with helper functions
-└── experiments/                                            # Folder with conducted analysis experiments; each experiment has its own subfolder
-    └── 2023_02_stress_pose_imwut/                          # Analysis for the 2023 IMWUT Paper (see below)
-        ├── feature_export/                                 # Exported motion features
-        ├── notebooks/                                      # Notebooks for data processing, data analysis, classification experiments, plotting, etc. in subfolders
-        ├── output/                                         # Output of classification experiments (pickled models, input features, etc.)
-        ├── params/                                         # Hyperparameter settings for classification experiments
-        ├── results/                                        # Analysis results
-        └── config.json/                                    # Config file containing location of dataset (ignored because path depend on local configurations)
+├── stresspose_analysis/            # `stresspose-analysis` Python package with helper functions
+└── experiments/                    # Folder with conducted analysis experiments; each experiment has its own subfolder
+    └── 2023_02_stress_pose_imwut/  # Analysis for the 2023 IMWUT Paper (see below)
+        ├── feature_export/         # Exported motion features
+        ├── notebooks/              # Notebooks for data processing, data analysis, classification experiments, plotting, etc. in subfolders
+        ├── output/                 # Output of classification experiments (pickled models, input features, etc.)
+        ├── params/                 # Hyperparameter settings for classification experiments
+        ├── results/                # Analysis results
+        └── config.json/            # Config file containing location of dataset (ignored because path depend on local configurations)
 ```
 
 ## Installation
