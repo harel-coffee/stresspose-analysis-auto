@@ -44,6 +44,20 @@ _axis_map = {"norm": "L2-norm", "x": "x-axis", "y": "y-axis", "z": "z-axis"}
 
 
 def add_concat_feature_name_to_index(data: pd.DataFrame) -> pd.DataFrame:
+    """Add a new index level ``feature_concat`` to the given dataframe.
+
+    This index level is a concatenation of the ``channel``, ``metric``, ``type``, and ``axis`` index levels.
+
+    Parameters
+    ----------
+    data : :class:`~pandas.DataFrame`
+        dataframe to add the new index level to
+
+    Returns
+    -------
+    :class:`~pandas.DataFrame`
+
+    """
     data_wide = data.unstack(["subject", "condition"])
     index_names = data_wide.index.names
     index = pd.Index(["-".join(i) for i in data_wide.index], name="feature_concat")
@@ -56,6 +70,21 @@ def add_concat_feature_name_to_index(data: pd.DataFrame) -> pd.DataFrame:
 
 
 def drop_multiindex(data: pd.DataFrame, levels_in: Optional[Sequence[str]] = None) -> pd.DataFrame:
+    """Drop index levels from a dataframe.
+
+    Parameters
+    ----------
+    data : :class:`~pandas.DataFrame`
+        dataframe to drop index levels from
+    levels_in : :class:`~typing.Sequence` of :class:`~typing.Optional` [:class:`~str`], optional
+        index levels to keep. If ``None``, the following index levels are kept:
+        ``["subject", "condition", "feature_concat"]``
+
+    Returns
+    -------
+    :class:`~pandas.DataFrame`
+
+    """
     # levels to keep
     if levels_in is None:
         levels_in = ["subject", "condition", "feature_concat"]

@@ -138,6 +138,7 @@ def plot_motion_features(
         legend_loc="center right",
         legend_orientation="vertical",
         stats_kwargs={"box_pairs": box_pairs, "pvalues": pvalues, "verbose": 0},
+        tight_layout=False,
         axs=axs,
         **kwargs,
     )
