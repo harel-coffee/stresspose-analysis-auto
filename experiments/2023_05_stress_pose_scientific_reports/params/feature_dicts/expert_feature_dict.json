@@ -125,43 +125,5 @@
             "window_sec": 0.5,
             "overlap_percent": 0.5
         }
-    ],
-    "below_threshold": [
-        {
-            "body_part": ["Head"],
-            "data_format": "calc",
-            "channel": "vel", 
-            "threshold": 0.3
-        },
-        {
-            "body_part": ["Spine3"],
-            "data_format": "calc",
-            "channel": "vel", 
-            "threshold": 0.3
-        },
-        {
-            "body_part": ["Trunk"],
-            "data_format": "calc",
-            "channel": "vel", 
-            "threshold": 0.3
-        },
-        {
-            "body_part": ["LeftHand", "RightHand"],
-            "data_format": "calc",
-            "channel": "vel", 
-            "threshold": 0.3
-        },
-        {
-            "body_part": ["UpperExtremities"],
-            "data_format": "calc", 
-            "channel": "vel", 
-            "threshold": 0.3
-        },
-        {
-            "body_part": ["LowerExtremities"],
-            "data_format": "calc",
-            "channel": "vel", 
-            "threshold": 0.3
-        }
     ]
 }
