@@ -17,10 +17,10 @@ _rename_map = {
     "generic-Trunk-vel-mean-mean-norm": "trunk-vel-mean",
     "generic-Head-rot-zero_crossing-zero_crossing-z": "head-rot-zcross",
     "generic-RightHand-ang_vel-abs_energy-abs_energy-norm": "hand-angvel-energy",
-    "expert-Trunk-vel-static_periods-max_duration_sec-norm": "trunk-sp-max",
-    "expert-UpperExtremities-vel-static_periods-max_duration_sec-norm": "ue-sp-max",
     "expert-Head-vel-static_periods-mean_duration_sec-norm": "head-sp-mean",
     "expert-UpperExtremities-vel-static_periods-mean_duration_sec-norm": "ue-sp-mean",
+    "expert-Trunk-vel-static_periods-max_duration_sec-norm": "trunk-sp-max",
+    "expert-UpperExtremities-vel-static_periods-max_duration_sec-norm": "ue-sp-max",
     "expert-Head-ang_vel-static_periods-ratio_percent-norm": "head-sp-ratio",
     "expert-Trunk-ang_vel-static_periods-ratio_percent-norm": "trunk-sp-ratio",
 }
@@ -70,14 +70,14 @@ _ylabel_mapping = {
 # axes titles in the result plot
 _title_mapping = {
     "generic": {
-        "vel_mean": "Velocity - Mean of L2-norm",
-        "rot_zero_crossing": "Rotation around z-axis - Zero Crossings",
-        "ang_vel_energy": "Ang. Vel. - Energy of L2-norm",
+        "vel_mean": "Velocity\nMean",
+        "rot_zero_crossing": "Rotation around z-axis\nZero Crossings",
+        "ang_vel_energy": "Ang. Vel.\nEnergy",
     },
     "expert": {
-        "sp_mean": "Velocity - Static Periods of L2-norm",
-        "sp_max": "Ang. Vel. - Static Periods of L2-norm",
-        "sp_ratio": "Ang. Vel. - Static Periods of L2-norm",
+        "sp_mean": "Velocity\nStatic Periods",
+        "sp_max": "Ang. Vel.\nStatic Periods",
+        "sp_ratio": "Ang. Vel.\nStatic Periods",
     },
 }
 
@@ -106,10 +106,10 @@ def plot_motion_features(
         axes
 
     """
-    rect = kwargs.pop("rect", (0, 0, 0.90, 1))
+    rect = kwargs.pop("rect", (0, 0, 1.0, 0.90))
     axs = kwargs.pop("axs", None)
     if axs is None:
-        fig, axs = plt.subplots(ncols=3, figsize=(12, 3))
+        fig, axs = plt.subplots(ncols=3, figsize=(7, 4))
     else:
         fig = axs[0].get_figure()
 
@@ -135,8 +135,8 @@ def plot_motion_features(
         group="feature_concat",
         hue_order=["f-TSST", "TSST"],
         features=features_flat,
-        legend_loc="center right",
-        legend_orientation="vertical",
+        legend_loc="upper center",
+        legend_orientation="horizontal",
         stats_kwargs={"box_pairs": box_pairs, "pvalues": pvalues, "verbose": 0},
         tight_layout=False,
         axs=axs,
@@ -151,6 +151,6 @@ def plot_motion_features(
         ax.set_title(_title_mapping[feature_type][feature_group], y=1.05)
         ax.set_xlabel(None)
 
-    fig.tight_layout(rect=rect, w_pad=1, pad=0)
+    fig.tight_layout(rect=rect, w_pad=1, pad=0.1)
 
     return fig, axs

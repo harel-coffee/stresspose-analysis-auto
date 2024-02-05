@@ -1,4 +1,3 @@
-"""Module with plotting functions."""
-from stresspose_analysis.plotting._plotting import plot_motion_features
+from stresspose_analysis.plotting import mainstudy, pilotstudy
 
-__all__ = ["plot_motion_features"]
+__all__ = ["pilotstudy", "mainstudy"]

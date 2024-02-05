@@ -3,9 +3,15 @@ from typing import Optional, Sequence
 import pandas as pd
 from biopsykit.utils.dataframe_handling import add_space_to_camel
 
+_phase_map = {
+    "talk": "Interview",
+    "math": "Mental Arithmetics",
+}
+
 _channel_map = {
     "acc": "Acc.",
     "ang_vel": "Ang. Vel.",
+    "gyr": "Ang. Vel.",
     "vel": "Velocity",
     "rot": "Rotation",
 }
@@ -16,6 +22,7 @@ _metric_map = {
     "max_duration_sec": "Max. Duration (s)",
     "cov": "CoV",
     "abs_energy": "Abs. Energy",
+    "entropy": "Entropy",
     "mean": "Mean",
     "ratio_percent": "Ratio (%)",
     "count_per_min": "Counts per Minute",
@@ -25,6 +32,7 @@ _metric_map = {
     "fft_aggregated_centroid": "FFT Centroid",
     "fft_aggregated_skew": "FFT Skewness",
     "fft_aggregated_variance": "FFT Variance",
+    "fft_aggregated_kurtosis": "FFT Kurtosis",
     "fft_aggregated_kurt": "FFT Kurtosis",
 }
 
@@ -34,8 +42,10 @@ _type_map = {
     "cov": "CoV",
     "max_val": "Max. Value",
     "abs_energy": "Abs. Energy",
+    "entropy": "Entropy",
     "fft_aggregated_skew": "FFT Aggregated Skewness",
     "fft_aggregated_centroid": "FFT Aggregated Centroid",
+    "fft_aggregated_kurtosis": "FFT Aggregated Kurtosis",
     "static_periods": "Static Periods",
     "zero_crossing": "Zero Crossings",
 }
@@ -44,20 +54,7 @@ _axis_map = {"norm": "L2-norm", "x": "x-axis", "y": "y-axis", "z": "z-axis"}
 
 
 def add_concat_feature_name_to_index(data: pd.DataFrame) -> pd.DataFrame:
-    """Add a new index level ``feature_concat`` to the given dataframe.
 
-    This index level is a concatenation of the ``channel``, ``metric``, ``type``, and ``axis`` index levels.
-
-    Parameters
-    ----------
-    data : :class:`~pandas.DataFrame`
-        dataframe to add the new index level to
-
-    Returns
-    -------
-    :class:`~pandas.DataFrame`
-
-    """
     data_wide = data.unstack(["subject", "condition"])
     index_names = data_wide.index.names
     index = pd.Index(["-".join(i) for i in data_wide.index], name="feature_concat")
@@ -70,21 +67,6 @@ def add_concat_feature_name_to_index(data: pd.DataFrame) -> pd.DataFrame:
 
 
 def drop_multiindex(data: pd.DataFrame, levels_in: Optional[Sequence[str]] = None) -> pd.DataFrame:
-    """Drop index levels from a dataframe.
-
-    Parameters
-    ----------
-    data : :class:`~pandas.DataFrame`
-        dataframe to drop index levels from
-    levels_in : :class:`~typing.Sequence` of :class:`~typing.Optional` [:class:`~str`], optional
-        index levels to keep. If ``None``, the following index levels are kept:
-        ``["subject", "condition", "feature_concat"]``
-
-    Returns
-    -------
-    :class:`~pandas.DataFrame`
-
-    """
     # levels to keep
     if levels_in is None:
         levels_in = ["subject", "condition", "feature_concat"]
@@ -118,4 +100,6 @@ def rename_motion_features(data: pd.DataFrame) -> pd.DataFrame:
         .rename(_type_map, level="type")
         .rename(_axis_map, level="axis")
     )
+    if "phase" in data.index.names:
+        data = data.rename(_phase_map, level="phase")
     return data
