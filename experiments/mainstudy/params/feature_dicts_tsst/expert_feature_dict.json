@@ -1,0 +1,156 @@
+{
+    "static_periods": [
+        {
+            "data_format": "mvnx_segment",
+            "body_part": "Head",
+            "channel": "gyr",
+            "sampling_rate": "<sampling_rate>",
+            "threshold": "<threshold_gyr>",
+            "window_sec": "<window_sec_gyr>",
+            "overlap_percent": "<overlap_percent_gyr>"
+        },
+        {
+            "data_format": "mvnx_segment",
+            "body_part": "Head",
+            "channel": "vel",
+            "sampling_rate": "<sampling_rate>",
+            "threshold": "<threshold_vel>",
+            "window_sec": "<window_sec_vel>",
+            "overlap_percent": "<overlap_percent_vel>"
+        },
+        {
+            "data_format": "mvnx_segment",
+            "body_part": "T8",
+            "channel": "gyr",
+            "sampling_rate": "<sampling_rate>",
+            "threshold": "<threshold_gyr>",
+            "window_sec": "<window_sec_gyr>",
+            "overlap_percent": "<overlap_percent_gyr>"
+        },
+        {
+            "data_format": "mvnx_segment",
+            "body_part": "T8",
+            "channel": "vel",
+            "sampling_rate": "<sampling_rate>",
+            "threshold": "<threshold_vel>",
+            "window_sec": "<window_sec_vel>",
+            "overlap_percent": "<overlap_percent_vel>"
+        },
+        {
+            "data_format": "mvnx_segment",
+            "body_part": "Trunk",
+            "channel": "gyr",
+            "sampling_rate": "<sampling_rate>",
+            "threshold": "<threshold_gyr>",
+            "window_sec": "<window_sec_gyr>",
+            "overlap_percent": "<overlap_percent_gyr>"
+        },
+        {
+            "data_format": "mvnx_segment",
+            "body_part": "Trunk",
+            "channel": "vel",
+            "sampling_rate": "<sampling_rate>",
+            "threshold": "<threshold_vel>",
+            "window_sec": "<window_sec_vel>",
+            "overlap_percent": "<overlap_percent_vel>"
+        },
+        {
+            "data_format": "mvnx_segment",
+            "body_part": ["LeftHand", "RightHand"],
+            "channel": "gyr",
+            "sampling_rate": "<sampling_rate>",
+            "threshold": "<threshold_gyr>",
+            "window_sec": "<window_sec_gyr>",
+            "overlap_percent": "<overlap_percent_gyr>"
+        },
+        {
+            "data_format": "mvnx_segment",
+            "body_part": ["LeftHand", "RightHand"],
+            "channel": "vel",
+            "sampling_rate": "<sampling_rate>",
+            "threshold": "<threshold_vel>",
+            "window_sec": "<window_sec_vel>",
+            "overlap_percent": "<overlap_percent_vel>"
+        },
+        {
+            "data_format": "mvnx_segment",
+            "body_part": "UpperExtremities",
+            "channel": "gyr",
+            "sampling_rate": "<sampling_rate>",
+            "threshold": "<threshold_gyr>",
+            "window_sec": "<window_sec_gyr>",
+            "overlap_percent": "<overlap_percent_gyr>"
+        },
+        {
+            "data_format": "mvnx_segment",
+            "body_part": "UpperExtremities",
+            "channel": "vel",
+            "sampling_rate": "<sampling_rate>",
+            "threshold": "<threshold_vel>",
+            "window_sec": "<window_sec_vel>",
+            "overlap_percent": "<overlap_percent_vel>"
+        },
+        {
+            "data_format": "mvnx_segment",
+            "body_part": "LowerExtremities",
+            "channel": "gyr",
+            "sampling_rate": "<sampling_rate>",
+            "threshold": "<threshold_gyr>",
+            "window_sec": "<window_sec_gyr>",
+            "overlap_percent": "<overlap_percent_gyr>"
+        },
+        {
+            "data_format": "mvnx_segment",
+            "body_part": "LowerExtremities",
+            "channel": "vel",
+            "sampling_rate": "<sampling_rate>",
+            "threshold": "<threshold_vel>",
+            "window_sec": "<window_sec_vel>",
+            "overlap_percent": "<overlap_percent_vel>"
+        },
+        {
+            "data_format": "mvnx_segment",
+            "body_part": "TotalBody",
+            "channel": "gyr",
+            "sampling_rate": "<sampling_rate>",
+            "threshold": "<threshold_gyr>",
+            "window_sec": "<window_sec_gyr>",
+            "overlap_percent": "<overlap_percent_gyr>"
+        },
+        {
+            "data_format": "mvnx_segment",
+            "body_part": "TotalBody",
+            "channel": "vel",
+            "sampling_rate": "<sampling_rate>",
+            "threshold": "<threshold_vel>",
+            "window_sec": "<window_sec_vel>",
+            "overlap_percent": "<overlap_percent_vel>"
+        }
+    ],
+    "euclidean_distance" : [
+        {
+            "body_part": ["LeftHand","RightHand"],
+            "distance_thres": "<distance_thres>",
+            "data_format": "mvnx_segment",
+            "channel": "pos"
+        },
+        {
+            "body_part": ["LeftHand","Head"],
+            "distance_thres": "<distance_thres>",
+            "data_format": "mvnx_segment",
+            "channel": "pos"
+        },
+        {
+            "body_part": ["RightHand","Head"],
+            "distance_thres": "<distance_thres>",
+            "data_format": "mvnx_segment",
+            "channel": "pos"
+        },
+        {
+            "body_part": ["LeftFoot","RightFoot"],
+            "distance_thres": "<distance_thres>",
+            "data_format": "mvnx_segment",
+            "channel": "pos"
+        }
+    ]
+}

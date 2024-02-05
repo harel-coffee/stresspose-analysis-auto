@@ -1,0 +1,242 @@
+{
+    "mean_norm": [
+        {
+            "data_format": "mvnx_segment",
+            "param_dict": {
+                "vel": ["Head", "TotalBody", "UpperExtremities", "Trunk", "T8", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm"],
+                "acc": ["Head", "TotalBody", "UpperExtremities", "Trunk", "T8", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm"],
+                "gyr": ["Head", "TotalBody", "UpperExtremities", "Trunk", "T8", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm"]
+            }
+        },
+        {
+            "data_format": "mvnx_joint",
+            "param_dict": {
+                "ang": ["jC1Head", "jRightElbow", "jLeftElbow", "jRightWrist", "jLeftWrist"]
+            }
+        },
+        {
+            "data_format": "center_mass",
+            "param_dict": {
+                "vel": ["CenterMass"]
+            }
+        }
+    ],
+    "std_norm": [
+        {
+            "data_format": "mvnx_segment",
+            "param_dict": {
+                "vel": ["Head", "TotalBody", "UpperExtremities", "Trunk", "T8", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm"],
+                "acc": ["Head", "TotalBody", "UpperExtremities", "Trunk", "T8", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm"],
+                "gyr": ["Head", "TotalBody", "UpperExtremities", "Trunk", "T8", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm"]
+            }
+        },
+        {
+            "data_format": "mvnx_joint",
+            "param_dict": {
+                "ang": ["jC1Head", "jRightElbow", "jLeftElbow", "jRightWrist", "jLeftWrist"]
+            }
+        },
+        {
+            "data_format": "center_mass",
+            "param_dict": {
+                "vel": ["CenterMass"]
+            }
+        }
+    ],
+    "cov_norm": [
+        {
+            "data_format": "mvnx_segment",
+            "param_dict": {
+                "vel": ["Head", "TotalBody", "UpperExtremities", "Trunk", "T8", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm"],
+                "acc": ["Head", "TotalBody", "UpperExtremities", "Trunk", "T8", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm"],
+                "gyr": ["Head", "TotalBody", "UpperExtremities", "Trunk", "T8", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm"]
+            }
+        },
+        {
+            "data_format": "mvnx_joint",
+            "param_dict": {
+                "ang": ["jC1Head", "jRightElbow", "jLeftElbow", "jRightWrist", "jLeftWrist"]
+            }
+        },
+        {
+            "data_format": "center_mass",
+            "param_dict": {
+                "vel": ["CenterMass"]
+            }
+        }
+    ],
+    "max_val_norm": [
+        {
+            "data_format": "mvnx_segment",
+            "param_dict": {
+                "vel": ["Head", "TotalBody", "UpperExtremities", "Trunk", "T8", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm"],
+                "acc": ["Head", "TotalBody", "UpperExtremities", "Trunk", "T8", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm"],
+                "gyr": ["Head", "TotalBody", "UpperExtremities", "Trunk", "T8", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm"]
+            }
+        },
+        {
+            "data_format": "mvnx_joint",
+            "param_dict": {
+                "ang": ["jC1Head", "jRightElbow", "jLeftElbow", "jRightWrist", "jLeftWrist"]
+            }
+        }
+    ],
+    "mean": [
+        {
+            "data_format": "mvnx_segment",
+            "param_dict": {
+                "vel": ["Head", "T8", "RightHand", "LeftHand"],
+                "acc": ["Head", "T8", "RightHand", "LeftHand"],
+                "gyr": ["Head", "T8", "RightHand", "LeftHand"]
+            }
+        },
+        {
+            "data_format": "mvnx_joint",
+            "param_dict": {
+                "ang": ["jC1Head"]
+            }
+        },
+        {
+            "data_format": "center_mass",
+            "param_dict": {
+                "vel": ["CenterMass"]
+            }
+        }
+    ],
+    "std": [
+        {
+            "data_format": "mvnx_segment",
+            "param_dict": {
+                "vel": ["Head", "T8", "RightHand", "LeftHand"],
+                "acc": ["Head", "T8", "RightHand", "LeftHand"],
+                "gyr": ["Head", "T8", "RightHand", "LeftHand"]
+            }
+        },
+        {
+            "data_format": "mvnx_joint",
+            "param_dict": {
+                "ang": ["jC1Head"]
+            }
+        },
+        {
+            "data_format": "center_mass",
+            "param_dict": {
+                "vel": ["CenterMass"]
+            }
+        }
+    ],
+    "cov": [
+        {
+            "data_format": "mvnx_segment",
+            "param_dict": {
+                "vel": ["Head", "T8", "RightHand", "LeftHand"],
+                "acc": ["Head", "T8", "RightHand", "LeftHand"],
+                "gyr": ["Head", "T8", "RightHand", "LeftHand"]
+            }
+        },
+        {
+            "data_format": "mvnx_joint",
+            "param_dict": {
+                "ang": ["jC1Head"]
+            }
+        },
+        {
+            "data_format": "center_mass",
+            "param_dict": {
+                "vel": ["CenterMass"]
+            }
+        }
+    ],
+    "abs_max": [
+        {
+            "data_format": "mvnx_segment",
+            "param_dict": {
+                "vel": ["Head", "T8", "RightHand", "LeftHand"],
+                "acc": ["Head", "T8", "RightHand", "LeftHand"],
+                "gyr": ["Head", "T8", "RightHand", "LeftHand"]
+            }
+        },
+        {
+            "data_format": "mvnx_joint",
+            "param_dict": {
+                "ang": ["jC1Head"]
+            }
+        }
+    ],
+    "entropy_norm": [
+        {
+            "data_format": "mvnx_segment",
+            "param_dict": {
+                "vel": ["Head", "TotalBody", "UpperExtremities", "Trunk", "T8", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm"],
+                "acc": ["Head", "TotalBody", "UpperExtremities", "Trunk", "T8", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm"],
+                "gyr": ["Head", "TotalBody", "UpperExtremities", "Trunk", "T8", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm"]
+            }
+        },
+        {
+            "data_format": "mvnx_joint",
+            "param_dict": {
+                "ang": ["jC1Head"]
+            }
+        }
+    ],
+    "entropy": [
+        {
+            "data_format": "mvnx_segment",
+            "param_dict": {
+                "vel": ["Head", "Trunk", "UpperExtremities"],
+                "acc": ["Head", "Trunk", "UpperExtremities"],
+                "gyr": ["Head", "Trunk", "UpperExtremities"]
+            }
+        },
+        {
+            "data_format": "mvnx_joint",
+            "param_dict": {
+                "ang": ["jC1Head"]
+            }
+        }
+    ],
+    "abs_energy_norm": [
+        {
+            "data_format": "mvnx_segment",
+            "param_dict": {
+                "vel": ["Head", "TotalBody", "UpperExtremities", "Trunk", "T8", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm"],
+                "acc": ["Head", "TotalBody", "UpperExtremities", "Trunk", "T8", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm"],
+                "gyr": ["Head", "TotalBody", "UpperExtremities", "Trunk", "T8", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm"]
+            }
+        }
+    ],
+    "mean_crossings_norm": [
+        {
+            "data_format": "mvnx_segment",
+            "param_dict": {
+                "vel": ["Head", "T8", "LeftHand", "RightHand"],
+                "acc": ["Head", "T8", "LeftHand", "RightHand"],
+                "gyr": ["Head", "T8", "LeftHand", "RightHand"]
+            }
+        }
+    ],
+    "zero_crossings": [
+        {
+            "data_format": "mvnx_joint",
+            "param_dict": {
+                "ang": ["jC1Head", "jT1C7", "jLeftWrist", "jRightWrist"]
+            }
+        }
+    ],
+    "fft_aggregated_norm": [
+        {
+            "data_format": "mvnx_segment",
+            "param_dict": {
+                "vel": ["Head", "T8", "LeftHand", "RightHand", "UpperExtremities", "Trunk", "TotalBody"],
+                "acc": ["Head", "T8", "LeftHand", "RightHand", "UpperExtremities", "Trunk", "TotalBody"],
+                "gyr": ["Head", "T8", "LeftHand", "RightHand", "UpperExtremities", "Trunk", "TotalBody"]
+            }
+        },
+        {
+            "data_format": "mvnx_joint",
+            "param_dict": {
+                "ang": ["jC1Head", "jRightElbow", "jLeftElbow", "jRightWrist", "jLeftWrist"]
+            }
+        }
+    ]
+}
