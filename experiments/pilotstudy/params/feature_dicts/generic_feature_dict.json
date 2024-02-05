@@ -1,0 +1,236 @@
+{
+    "mean_norm": [
+        {
+            "data_format": "calc",
+            "param_dict": {
+                "vel": ["Head", "TotalBody", "UpperExtremities", "LowerExtremities", "Trunk", "Spine3", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm", "RightLeg", "LeftLeg"],
+                "ang_vel": ["Head", "TotalBody", "UpperExtremities", "LowerExtremities", "Trunk", "Spine3", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm", "RightLeg", "LeftLeg"]
+            }
+        },
+        {
+            "data_format": "bvh",
+            "param_dict": {
+                "rot": ["Head", "Spine3", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm", "RightLeg", "LeftLeg"]
+            }
+        },
+        {
+            "data_format": "center_mass",
+            "param_dict": {
+                "center_mass": ["CenterMass"]
+            }
+        }
+    ],
+    "std_norm": [
+        {
+            "data_format": "calc",
+            "param_dict": {
+                "vel": ["Head", "TotalBody", "UpperExtremities", "LowerExtremities", "Trunk", "Spine3", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm", "RightLeg", "LeftLeg"],
+                "ang_vel": ["Head", "TotalBody", "UpperExtremities", "LowerExtremities", "Trunk", "Spine3", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm", "RightLeg", "LeftLeg"]
+            }
+        },
+        {
+            "data_format": "bvh",
+            "param_dict": {
+                "rot": ["Head", "Spine3", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm", "RightLeg", "LeftLeg"]
+            }
+        },
+        {
+            "data_format": "center_mass",
+            "param_dict": {
+                "center_mass": ["CenterMass"]
+            }
+        }
+    ],
+    "cov_norm": [
+        {
+            "data_format": "calc",
+            "param_dict": {
+                "vel": ["Head", "TotalBody", "UpperExtremities", "LowerExtremities", "Trunk", "Spine3", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm", "RightLeg", "LeftLeg"],
+                "ang_vel": ["Head", "TotalBody", "UpperExtremities", "LowerExtremities", "Trunk", "Spine3", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm", "RightLeg", "LeftLeg"]
+            }
+        },
+        {
+            "data_format": "bvh",
+            "param_dict": {
+                "rot": ["Head", "Spine3", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm", "RightLeg", "LeftLeg"]
+            }
+        },
+        {
+            "data_format": "center_mass",
+            "param_dict": {
+                "center_mass": ["CenterMass"]
+            }
+        }
+    ],
+    "max_val_norm": [
+        {
+            "data_format": "calc",
+            "param_dict": {
+                "vel": ["Head", "TotalBody", "UpperExtremities", "LowerExtremities", "Trunk", "Spine3", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm", "RightLeg", "LeftLeg"],
+                "ang_vel": ["Head", "TotalBody", "UpperExtremities", "LowerExtremities", "Trunk", "Spine3", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm", "RightLeg", "LeftLeg"]
+            }
+        },
+        {
+            "data_format": "bvh",
+            "param_dict": {
+                "rot": ["Head", "Spine3", "RightHand", "LeftHand", "RightForeArm", "LeftForeArm", "RightLeg", "LeftLeg"]
+            }
+        }
+    ],
+    "mean": [
+        {
+            "data_format": "calc",
+            "param_dict": {
+                "vel": ["Head", "Spine3", "RightHand", "LeftHand"],
+                "ang_vel": ["Head", "Spine3", "RightHand", "LeftHand"]
+            }
+        },
+        {
+            "data_format": "bvh",
+            "param_dict": {
+                "rot": ["Head"]
+            }
+        },
+        {
+            "data_format": "center_mass",
+            "param_dict": {
+                "center_mass": ["CenterMass"]
+            }
+        }
+    ],
+    "std": [
+        {
+            "data_format": "calc",
+            "param_dict": {
+                "vel": ["Head", "Spine3", "RightHand", "LeftHand"],
+                "ang_vel": ["Head", "Spine3", "RightHand", "LeftHand"]
+            }
+        },
+        {
+            "data_format": "bvh",
+            "param_dict": {
+                "rot": ["Head"]
+            }
+        },
+        {
+            "data_format": "center_mass",
+            "param_dict": {
+                "center_mass": ["CenterMass"]
+            }
+        }
+    ],
+    "cov": [
+        {
+            "data_format": "calc",
+            "param_dict": {
+                "vel": ["Head", "Spine3", "RightHand", "LeftHand"],
+                "ang_vel": ["Head", "Spine3", "RightHand", "LeftHand"]
+            }
+        },
+        {
+            "data_format": "bvh",
+            "param_dict": {
+                "rot": ["Head"]
+            }
+        },
+        {
+            "data_format": "center_mass",
+            "param_dict": {
+                "center_mass": ["CenterMass"]
+            }
+        }
+    ],
+    "abs_max": [
+        {
+            "data_format": "calc",
+            "param_dict": {
+                "vel": ["Head", "Spine3", "RightHand", "LeftHand"],
+                "ang_vel": ["Head", "Spine3", "RightHand", "LeftHand"]
+            }
+        },
+        {
+            "data_format": "bvh",
+            "param_dict": {
+                "rot": ["Head"]
+            }
+        }
+    ],
+    "entropy_norm": [
+        {
+            "data_format": "calc",
+            "param_dict": {
+                "vel": ["Head", "Spine3", "RightHand", "LeftHand"],
+                "ang_vel": ["Head", "Spine3", "RightHand", "LeftHand"]
+            }
+        },
+        {
+            "data_format": "bvh",
+            "param_dict": {
+                "rot": ["Head"]
+            }
+        }
+    ],
+    "entropy": [
+        {
+            "data_format": "calc",
+            "param_dict": {
+                "vel": ["Head", "Trunk", "UpperExtremities"],
+                "ang_vel": ["Head", "Trunk", "UpperExtremities"]
+            }
+        },
+        {
+            "data_format": "bvh",
+            "param_dict": {
+                "rot": ["Head"]
+            }
+        }
+    ],
+    "abs_energy_norm": [
+        {
+            "data_format": "calc",
+            "param_dict": {
+                "vel": ["Head", "Spine3", "LeftHand", "RightHand", "UpperExtremities", "Trunk", "TotalBody"],
+                "ang_vel": ["Head", "Spine3", "LeftHand", "RightHand", "UpperExtremities", "Trunk", "TotalBody"]
+            }
+        }
+    ],
+    "mean_crossings_norm": [
+        {
+            "data_format": "calc",
+            "param_dict": {
+                "vel": ["Head", "Spine3", "LeftHand", "RightHand"],
+                "ang_vel": ["Head", "Spine3", "LeftHand", "RightHand"]
+            }
+        }
+    ],
+    "zero_crossings": [
+        {
+            "data_format": "calc",
+            "param_dict": {
+                "vel": ["Head", "Spine3", "LeftHand", "RightHand"],
+                "ang_vel": ["Head", "Spine3", "LeftHand", "RightHand"]
+            }
+        },
+        {
+            "data_format": "bvh",
+            "param_dict": {
+                "rot": ["Head", "Spine3", "LeftHand", "RightHand"]
+            }
+        }
+    ],
+    "fft_aggregated_norm": [
+        {
+            "data_format": "calc",
+            "param_dict": {
+                "vel": ["Head", "Spine3", "LeftHand", "RightHand", "TotalBody", "Trunk"],
+                "ang_vel": ["Head", "Spine3", "LeftHand", "RightHand", "TotalBody", "Trunk"]
+            }
+        },
+        {
+            "data_format": "bvh",
+            "param_dict": {
+                "rot": ["Head", "Spine3", "LeftHand", "RightHand"]
+            }
+        }
+    ]
+}
