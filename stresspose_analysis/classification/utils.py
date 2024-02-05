@@ -1,3 +1,4 @@
+"""Utility functions for classification analysis."""
 from typing import Optional, Sequence, Tuple
 
 import numpy as np
@@ -11,6 +12,21 @@ from stresspose_analysis.data_wrangling import rename_motion_features
 
 
 def flatten_wide_format_column_names(data: pd.DataFrame, col_index_name: Optional[str] = "feature") -> pd.DataFrame:
+    """Flatten wide-format column names.
+
+    Parameters
+    ----------
+    data : :class:`~pandas.DataFrame`
+        wide-format input data for classification
+    col_index_name : str, optional
+        name of the column index. Default: "feature"
+
+    Returns
+    -------
+    :class:`~pandas.DataFrame`
+        wide-format data with flattened column names
+
+    """
     data.columns = ["-".join(col) for col in data.columns]
     data.columns.name = col_index_name
     return data
@@ -52,6 +68,29 @@ def get_feature_counts(
     feature_selection_key: Optional[str] = "reduce_dim",
     num_features: Optional[int] = None,
 ) -> pd.DataFrame:
+    """Get feature counts for a specific pipeline.
+
+    Parameters
+    ----------
+    pipeline_permuter : :class:`~biopsykit.classification.model_selection.SklearnPipelinePermuter`
+        pipeline permuter object
+    data : :class:`~pandas.DataFrame`
+        long-format feature data
+    pipeline : tuple of str
+        pipeline to get feature counts for
+    index_levels : str or list of str, optional
+        index levels to unstack feature data. Default: ["subject", "condition"]
+    feature_selection_key : str, optional
+        key for feature selection step in pipeline. Default: "reduce_dim"
+    num_features : int, optional
+        minimum number of features to include in the output. Default: None
+
+    Returns
+    -------
+    :class:`~pandas.DataFrame`
+        feature counts for the specified pipeline
+
+    """
     if index_levels is None:
         index_levels = ["subject", "condition"]
     if isinstance(index_levels, str):
@@ -90,6 +129,21 @@ def get_feature_counts(
 
 
 def get_number_features_per_fold(pipeline_permuter: SklearnPipelinePermuter, pipeline: Tuple[str]) -> pd.DataFrame:
+    """Get number of features per CV fold for a specific pipeline.
+
+    Parameters
+    ----------
+    pipeline_permuter : :class:`~biopsykit.classification.model_selection.SklearnPipelinePermuter`
+        pipeline permuter object
+    pipeline : tuple of str
+        pipeline to get feature counts for
+
+    Returns
+    -------
+    :class:`~pandas.DataFrame`
+        number of features per CV fold for the specified pipeline
+
+    """
     best_estimator_summary = pipeline_permuter.best_estimator_summary()
 
     best_pipeline = best_estimator_summary.loc[pipeline].iloc[0]
@@ -101,6 +155,21 @@ def get_number_features_per_fold(pipeline_permuter: SklearnPipelinePermuter, pip
 
 
 def feature_counts_to_latex(feature_counts: pd.DataFrame, **kwargs) -> str:
+    """Convert feature counts to LaTeX table.
+
+    Parameters
+    ----------
+    feature_counts : :class:`~pandas.DataFrame`
+        feature counts as returned by :func:`~get_feature_counts`
+    **kwargs
+        additional keyword arguments for :meth:`~pandas.DataFrame.style.to_latex`
+
+    Returns
+    -------
+    str
+        LaTeX table as string
+
+    """
     kwargs.setdefault("sparse_index", False)
     kwargs.setdefault("hrules", True)
     kwargs.setdefault("position", "ht!")
@@ -118,6 +187,23 @@ def feature_counts_to_latex(feature_counts: pd.DataFrame, **kwargs) -> str:
 def shap_values_per_fold(
     pipeline_permuter: SklearnPipelinePermuter, pipeline: Tuple[str], data: pd.DataFrame
 ) -> Tuple[np.ndarray, pd.DataFrame]:
+    """Get SHAP feature importances per CV fold for a specific pipeline.
+
+    Parameters
+    ----------
+    pipeline_permuter : :class:`~biopsykit.classification.model_selection.SklearnPipelinePermuter`
+        pipeline permuter object
+    pipeline : tuple of str
+        pipeline to get SHAP values for
+    data : :class:`~pandas.DataFrame`
+        long-format feature data
+
+    Returns
+    -------
+    tuple
+        SHAP feature importances per CV fold for the specified pipeline, and the corresponding data
+
+    """
     best_estimator_summary = pipeline_permuter.best_estimator_summary()
     pipeline_folds = best_estimator_summary.loc[pipeline]["best_estimator"].pipeline
 
@@ -144,6 +230,23 @@ def shap_values_per_fold(
 def get_shap_feature_importances(
     shap_values: np.ndarray, data: pd.DataFrame, index_levels: Optional[str_t] = None
 ) -> pd.DataFrame:
+    """Get SHAP feature importances.
+
+    Parameters
+    ----------
+    shap_values : :class:`~numpy.ndarray`
+        SHAP values as returned by :func:`~shap_values_per_fold`
+    data : :class:`~pandas.DataFrame`
+        long-format feature data
+    index_levels : str or list of str, optional
+        index levels to unstack feature data. Default: ["subject", "condition"]
+
+    Returns
+    -------
+    :class:`~pandas.DataFrame`
+        SHAP feature importances
+
+    """
     if index_levels is None:
         index_levels = ["subject", "condition"]
     if isinstance(index_levels, str):

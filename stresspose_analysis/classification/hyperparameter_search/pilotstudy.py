@@ -1,3 +1,4 @@
+"""Hyperparameters for pilot study."""
 from typing import Any, Dict
 
 import numpy as np
@@ -12,6 +13,13 @@ from sklearn.tree import DecisionTreeClassifier
 
 
 def get_model_dict() -> Dict[str, Dict[str, Any]]:
+    """Get model dictionary for pilot study.
+
+    Returns
+    -------
+    dict
+        Model dictionary for pilot study
+    """
     return {
         "remove_var": {
             "VarianceThreshold": VarianceThreshold(),
@@ -37,6 +45,18 @@ def get_model_dict() -> Dict[str, Dict[str, Any]]:
 
 
 def get_hyper_para_dict(num_subjects: int) -> Dict[str, Dict[str, Any]]:
+    """Get hyperparameter dictionary for pilot study.
+
+    Parameters
+    ----------
+    num_subjects : int
+        Number of subjects (dertermines max number of features to select)
+
+    Returns
+    -------
+    dict
+        Hyperparameter dictionary for pilot study
+    """
     num_features = list(np.arange(2, num_subjects, 2))
     return {
         "StandardScaler": None,
@@ -110,5 +130,12 @@ def get_hyper_para_dict(num_subjects: int) -> Dict[str, Dict[str, Any]]:
 
 
 def get_hyper_search_dict() -> Dict[str, Dict[str, Any]]:
+    """Get hyperparameter search strategy for pilot study.
+
+    Returns
+    -------
+    dict
+        Hyperparameter search strategy for pilot study
+    """
     # use randomized-search for random forest classifier, use grid-search (the default) for all other estimators
     return {"RandomForestClassifier": {"search_method": "random", "n_iter": 40000}}

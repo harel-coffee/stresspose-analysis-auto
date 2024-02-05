@@ -1,3 +1,4 @@
+"""Module for plotting functions of the main study."""
 from stresspose_analysis.plotting.mainstudy._plotting import (
     plot_motion_features,
     plot_motion_features_per_phase,

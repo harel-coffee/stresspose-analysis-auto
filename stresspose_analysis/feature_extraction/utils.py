@@ -1,3 +1,4 @@
+"""Utility functions for feature extraction."""
 import json
 from ast import literal_eval
 from typing import Optional
@@ -24,6 +25,22 @@ def load_generic_feature_dict(folder_path: path_t, suffix: Optional[str] = None)
 
 
 def load_expert_feature_dict(folder_path: path_t, sampling_rate_hz: float, **kwargs) -> dict:
+    """Load an expert feature dictionary from a JSON file.
+
+    Parameters
+    ----------
+    folder_path : str or :class:`pathlib.Path`
+        Path to the JSON file.
+    sampling_rate_hz : float
+        Sampling rate of the data.
+    kwargs : dict
+        Additional key-value pairs to replace in the expert feature dictionary.
+
+    Returns
+    -------
+    dict
+        A dictionary of features.
+    """
     expert_feature_dict = json.load(folder_path.joinpath("expert_feature_dict.json").open(encoding="utf-8"))
     # convert dict to str in order to replace sampling_rate placeholder with actual sampling rate of data
     expert_feature_dict = str(expert_feature_dict)
@@ -35,6 +52,19 @@ def load_expert_feature_dict(folder_path: path_t, sampling_rate_hz: float, **kwa
 
 
 def remove_na(data: pd.DataFrame) -> pd.DataFrame:
+    """Remove rows with NaN values from a DataFrame.
+
+    Parameters
+    ----------
+    data : :class:`pandas.DataFrame`
+        The DataFrame to remove NaN values from.
+
+    Returns
+    -------
+    :class:`pandas.DataFrame`
+        The DataFrame without NaN values.
+
+    """
     index_order = data.index.names
     stack_levels = ["subject", "condition"]
     if "phase" in data.index.names:

@@ -1,3 +1,4 @@
+"""Hyperparameters for main study."""
 from typing import Any, Dict, Optional
 
 import numpy as np
@@ -90,6 +91,21 @@ _base_hyper_para_dict = {
 
 
 def get_model_dict(*, scaler: Optional[str] = None, fsel: Optional[str] = None) -> Dict[str, Dict[str, Any]]:
+    """Get model dictionary for hyperparameter search.
+
+    Parameters
+    ----------
+    scaler : str, optional
+        Scaler to use, by default None
+    fsel : str, optional
+        Feature selection method to use, by default None
+
+    Returns
+    -------
+    dict
+        Model dictionary
+
+    """
     model_dict = _base_model_dict.copy()
     if scaler is None:
         scaler = ["minmax", "standard"]
@@ -109,6 +125,14 @@ def get_model_dict(*, scaler: Optional[str] = None, fsel: Optional[str] = None) 
 
 
 def get_model_dict_rf() -> Dict[str, Dict[str, Any]]:
+    """Get model dictionary for hyperparameter search with random forest classifier.
+
+    Returns
+    -------
+    dict
+        Model dictionary for random forest classifier
+
+    """
     model_dict = {
         "remove_var": {
             "VarianceThreshold": VarianceThreshold(),
@@ -129,6 +153,18 @@ def get_model_dict_rf() -> Dict[str, Dict[str, Any]]:
 
 
 def get_hyper_para_dict_rf(*, num_subjects: int) -> Dict[str, Dict[str, Any]]:
+    """Get hyperparameter dictionary for random forest classifier.
+
+    Parameters
+    ----------
+    num_subjects : int
+        Number of subjects (determines max number of features)
+
+    Returns
+    -------
+    dict
+        Hyperparameter dictionary for random forest classifier
+    """
     num_features = list(np.arange(10, num_subjects, 2))
     hyper_para_dict = {
         "VarianceThreshold": {"threshold": [0.0]},
@@ -154,6 +190,18 @@ def get_hyper_para_dict_rf(*, num_subjects: int) -> Dict[str, Dict[str, Any]]:
 
 
 def get_hyper_para_dict(*, num_subjects: int) -> Dict[str, Dict[str, Any]]:
+    """Get hyperparameter dictionary for main study.
+
+    Parameters
+    ----------
+    num_subjects : int
+        Number of subjects (determines max number of features)
+
+    Returns
+    -------
+    dict
+        Hyperparameter dictionary for main study
+    """
     num_features = list(np.arange(2, num_subjects, 2))
     hyper_para_dict = _base_hyper_para_dict.copy()
 
@@ -166,9 +214,23 @@ def get_hyper_para_dict(*, num_subjects: int) -> Dict[str, Dict[str, Any]]:
 
 
 def get_hyper_search_dict() -> Dict[str, Dict[str, Any]]:
+    """Get search strategy dictionary for main study.
+
+    Returns
+    -------
+    dict
+        Search strategy dictionary for main study
+    """
     return {}
 
 
 def get_hyper_search_dict_rf() -> Dict[str, Dict[str, Any]]:
+    """Get search strategy dictionary for random forest classifier.
+
+    Returns
+    -------
+    dict
+        Search strategy dictionary for random forest classifier
+    """
     # use randomized-search for random forest classifier
     return {"RandomForestClassifier": {"search_method": "random", "n_iter": 40000}}
