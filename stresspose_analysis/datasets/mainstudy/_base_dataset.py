@@ -9,11 +9,10 @@ from biopsykit.io import (
     load_questionnaire_data,
 )
 from biopsykit.utils.file_handling import get_subject_dirs
-from tpcp import Dataset
-
 from empkins_io.datasets.d03.macro_ap01.helper import _build_data_path
 from empkins_io.utils._types import path_t
 from empkins_io.utils.exceptions import TimelogNotFoundException
+from tpcp import Dataset
 
 
 class MainStudyBaseDataset(Dataset):

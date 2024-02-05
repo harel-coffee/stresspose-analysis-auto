@@ -1,14 +1,13 @@
 from functools import cached_property, lru_cache
 from itertools import product
-from typing import Optional, Sequence, Dict, Union
+from typing import Dict, Optional, Sequence, Union
 
 import pandas as pd
 from biopsykit.utils.file_handling import get_subject_dirs
-
 from empkins_io.utils._types import path_t, str_t
 
 from stresspose_analysis.datasets.mainstudy._base_dataset import MainStudyBaseDataset
-from stresspose_analysis.datasets.mainstudy._helper import _load_tsst_mocap_data, _get_times_for_mocap
+from stresspose_analysis.datasets.mainstudy._helper import _get_times_for_mocap, _load_tsst_mocap_data
 
 _cached_load_mocap_data = lru_cache(maxsize=4)(_load_tsst_mocap_data)
 

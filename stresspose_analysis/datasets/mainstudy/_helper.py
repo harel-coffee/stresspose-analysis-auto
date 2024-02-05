@@ -3,7 +3,6 @@ from pathlib import Path
 from typing import Optional
 
 import pandas as pd
-
 from empkins_io.sensors.motion_capture.motion_capture_formats import mvnx
 from empkins_io.utils._types import path_t, str_t
 

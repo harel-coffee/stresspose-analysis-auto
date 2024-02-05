@@ -4,7 +4,6 @@ from typing import Dict, Optional, Sequence, Union
 
 import pandas as pd
 from biopsykit.utils.file_handling import get_subject_dirs
-
 from empkins_io.datasets.d03.macro_ap01.helper import _get_times_for_mocap, _load_tsst_mocap_data
 from empkins_io.utils._types import path_t, str_t
 

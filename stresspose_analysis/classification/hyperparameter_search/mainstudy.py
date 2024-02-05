@@ -3,7 +3,7 @@ from typing import Any, Dict, Optional
 import numpy as np
 from sklearn.decomposition import PCA
 from sklearn.ensemble import AdaBoostClassifier, RandomForestClassifier
-from sklearn.feature_selection import RFE, SelectKBest, VarianceThreshold, SelectFromModel
+from sklearn.feature_selection import RFE, SelectFromModel, SelectKBest, VarianceThreshold
 from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neural_network import MLPClassifier

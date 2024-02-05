@@ -1,6 +1,6 @@
 """Module for plotting macro data."""
 from copy import deepcopy
-from typing import Sequence, Tuple, Dict
+from typing import Dict, Sequence, Tuple
 
 import numpy as np
 import pandas as pd
@@ -293,7 +293,7 @@ def shap_feature_importances_plot(shap_values: np.ndarray, features: pd.DataFram
     feature_names = feature_names.rename({"LeftHand_RightHand": "Hands"}, level="body_part")
 
     feature_names = feature_names.index.tolist()
-    feature_names = ["  –  ".join(f) for f in feature_names]
+    feature_names = ["  -  ".join(f) for f in feature_names]
 
     shap.summary_plot(
         shap_values, features=features, plot_size=kwargs.get("plot_size", (12, 5)), feature_names=feature_names

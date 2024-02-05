@@ -11,8 +11,8 @@ from sklearn.model_selection import GroupKFold
 
 from stresspose_analysis.classification.hyperparameter_search.mainstudy import (
     get_hyper_para_dict_rf,
-    get_model_dict_rf,
     get_hyper_search_dict_rf,
+    get_model_dict_rf,
 )
 from stresspose_analysis.classification.utils import flatten_wide_format_column_names
 

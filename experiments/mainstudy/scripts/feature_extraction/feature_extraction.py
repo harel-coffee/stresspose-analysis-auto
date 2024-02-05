@@ -1,20 +1,18 @@
 #!/usr/bin/env python
 
 import json
-import os
 from pathlib import Path
 from typing import Tuple
 
 import pandas as pd
-from joblib import delayed, Parallel
-
-from tqdm.auto import tqdm
-
 from empkins_io.datasets.d03.macro_ap01 import MacroStudyTsstDataset
 from empkins_macro.feature_extraction import extract_expert_features, extract_generic_features
+from joblib import Parallel, delayed
+from tqdm.auto import tqdm
+
 from stresspose_analysis.feature_extraction.utils import (
-    load_generic_feature_dict,
     load_expert_feature_dict,
+    load_generic_feature_dict,
     remove_na,
 )
 
