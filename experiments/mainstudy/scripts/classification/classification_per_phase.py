@@ -20,7 +20,6 @@ env_vars = {key: val for key, val in os.environ.items() if key.startswith("PARAM
 
 random_state = int(env_vars.pop("PARAM__RANDOM_STATE", 0))
 
-classification_type = env_vars.get("PARAM__TYPE", "general")
 scaler = env_vars.get("PARAM__SCALER", None)
 fsel = env_vars.get("PARAM__FSEL", None)
 
@@ -28,13 +27,11 @@ file_name = Path(__file__).with_suffix("").name
 
 input_path = Path("../../")
 output_path = Path("../../output/classification")
-output_path.mkdir(exist_ok=True)
+output_path.mkdir(exist_ok=True, parents=True)
 
-feature_path = input_path.joinpath("feature_export/movement_features")
-if classification_type == "general":
-    feature_file = feature_path.joinpath("movement_features_for_classification.csv")
-else:
-    feature_file = feature_path.joinpath(f"movement_features_{classification_type}_for_classification.csv")
+feature_file = input_path.joinpath(
+    "feature_export/movement_features/movement_features_per_phase_for_classification.csv"
+)
 
 print(f"Using feature file: {feature_file}")
 
@@ -54,33 +51,29 @@ model_dict = get_model_dict(scaler=scaler, fsel=fsel)
 params_dict = get_hyper_para_dict(num_subjects=num_subjects)
 hyper_search_dict = get_hyper_search_dict()
 
-
 outer_cv = GroupKFold(5)
 inner_cv = GroupKFold(5)
 
-
-base_file_name = f"{file_name}"
+base_file_name = str(file_name)
 for key, value in env_vars.items():
     if value is None:
         continue
     key_name = key.split("__")[-1].lower()
     base_file_name += f"_{key_name}_{value}"
 
-base_file_name += "_pipeline_permuter"
+base_file_name += "_pipeline_permuter.pkl"
 
-# check if pipeline permuter already exists from previous job
-input_file_path = output_path.joinpath(f"{base_file_name}.pkl")
-if input_file_path.exists():
-    print(f"Loading pre-fitted pipeline permuter from {input_file_path}.")
-    pipeline_permuter = SklearnPipelinePermuter.from_pickle(input_file_path)
+# check if pipeline permuter already exists from previous run
+permuter_file_path = output_path.joinpath(base_file_name)
+if permuter_file_path.exists():
+    print(f"Loading pre-fitted pipeline permuter from {permuter_file_path}.")
+    pipeline_permuter = SklearnPipelinePermuter.from_pickle(permuter_file_path)
 else:
     pipeline_permuter = SklearnPipelinePermuter(model_dict, params_dict, hyper_search_dict, random_state=random_state)
 
 print(f"RANDOM STATE: {pipeline_permuter.random_state.get_state()[1][0]}")
 
-
 data.to_csv(output_path.joinpath(f"{feature_file.stem}.csv"))
-output_file_path = output_path.joinpath(f"{base_file_name}.pkl")
 
 # fit all pipelines
 with warnings.catch_warnings():
@@ -88,7 +81,7 @@ with warnings.catch_warnings():
     pipeline_permuter.fit_and_save_intermediate(
         X,
         y,
-        file_path=output_file_path,
+        file_path=permuter_file_path,
         outer_cv=outer_cv,
         inner_cv=inner_cv,
         groups=groups,
@@ -101,4 +94,4 @@ metric_summary = metric_summary.sort_values(by="mean_test_accuracy", ascending=F
 print("METRIC SUMMARY")
 print(metric_summary[["mean_test_accuracy", "std_test_accuracy"]].head())
 
-pipeline_permuter.to_pickle(output_file_path)
+pipeline_permuter.to_pickle(permuter_file_path)
