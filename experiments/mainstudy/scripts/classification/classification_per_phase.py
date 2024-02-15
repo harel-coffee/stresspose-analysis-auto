@@ -1,4 +1,38 @@
 #!/usr/bin/env python3
+"""
+# classification_per_phase.py.
+
+This script performs a classification experiment using different machine learning pipelines using
+features computed per phase as input.
+The pipelines include feature scaling, feature selection, and model fitting.
+The script also handles hyperparameter tuning and model selection.
+
+## Execution
+
+The script is executed from the command line with environment variables to set certain parameters.
+These parameters include:
+    * the random state for reproducibility ("PARAM__RANDOM_STATE")
+    * the type of feature scaler ("PARAM__SCALER")
+    * the feature selection method ("PARAM__FSEL")
+
+## Input
+
+The input to the script is a CSV file containing movement features for classification as output by the
+`feature_extraction_per_phase` script.
+
+## Output
+
+The output of the script includes:
+    * A CSV file with the original features that were used for classification.
+    * A pickle file containing the fitted pipelines from the `SklearnPipelinePermuter` object.
+
+## Note
+
+The script uses nested cross-validation for model selection and evaluation.
+This method provides a more unbiased estimate of the model's performance on unseen data.
+However, it can be computationally expensive. The script is designed to handle this by saving intermediate results,
+allowing the user to stop and resume the script without losing progress.
+"""
 import os
 import warnings
 from pathlib import Path

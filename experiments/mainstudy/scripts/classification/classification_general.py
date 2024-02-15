@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-# classification_general.py
+# classification_general.py.
 
 This script performs a classification experiment using different machine learning pipelines.
 The pipelines include feature scaling, feature selection, and model fitting.
@@ -10,9 +10,9 @@ The script also handles hyperparameter tuning and model selection.
 
 The script is executed from the command line with environment variables to set certain parameters.
 These parameters include:
-    * the random state for reproducibility ("PARAM__RANDOM_STATE"),
-    * the type of feature scaler ("PARAM__SCALER"),
-    * the feature selection method ("PARAM__FSEL").
+    * the random state for reproducibility ("PARAM__RANDOM_STATE")
+    * the type of feature scaler ("PARAM__SCALER")
+    * the feature selection method ("PARAM__FSEL")
 
 ## Input
 
